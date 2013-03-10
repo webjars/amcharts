@@ -1,5 +1,5 @@
-WebJar for [Library]
+WebJar for amCharts
 
 More info: http://webjars.org
 
-Upstream: [Library URL]
+Upstream: http://www.amcharts.com
