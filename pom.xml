@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>amcharts</artifactId>
-    <version>3.13.1-SNAPSHOT</version>
+    <version>3.13.1</version>
     <name>amCharts</name>
     <description>WebJar for amCharts</description>
     <url>http://webjars.org</url>
@@ -36,7 +36,7 @@
         <url>http://github.com/webjars/amcharts</url>
         <connection>scm:git:https://github.com/webjars/amcharts.git</connection>
         <developerConnection>scm:git:https://github.com/webjars/amcharts.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>amcharts-3.13.1</tag>
     </scm>
     
     <properties>
@@ -77,11 +77,11 @@
                         <goals><goal>run</goal></goals>
                         <configuration>
                             <target>
-                                <echo message="unzip archive"/>
-                                <unzip src="${project.build.directory}/${project.artifactId}.zip" dest="${project.build.directory}"/>
-                                <echo message="moving resources"/>
+                                <echo message="unzip archive" />
+                                <unzip src="${project.build.directory}/${project.artifactId}.zip" dest="${project.build.directory}" />
+                                <echo message="moving resources" />
                                 <move todir="${destDir}">
-                                    <fileset dir="${project.build.directory}/amcharts"/>
+                                    <fileset dir="${project.build.directory}/amcharts" />
                                 </move>
                             </target>
                         </configuration>
