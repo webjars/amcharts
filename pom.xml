@@ -11,10 +11,18 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>amcharts</artifactId>
-    <version>3.15.1-SNAPSHOT</version>
+    <version>3.20.13-SNAPSHOT</version>
     <name>amCharts</name>
     <description>WebJar for amCharts</description>
     <url>http://webjars.org</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <version.minor>3.20</version.minor>
+        <upstream.url>https://s3.amazonaws.com/amcharts-downloads/${version.minor}/amcharts_${version.unsnapshot}.free.zip</upstream.url>
+        <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${project.version}</destDir>
+    </properties>
+
 
     <developers>
         <developer>
@@ -39,31 +47,18 @@
         <tag>HEAD</tag>
     </scm>
     
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <upstream.version>3.15.0</upstream.version>
-        <upstream.url>http://www.amcharts.com/downloads</upstream.url>
-        <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstream.version}</destDir>
-    </properties>
-
     <build>
         <plugins>
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>wagon-maven-plugin</artifactId>
-                <version>1.0-beta-4</version>
+                <groupId>com.jamesward</groupId>
+                <artifactId>unsnapshot-maven-plugin</artifactId>
+                <version>0.2</version>
                 <executions>
                     <execution>
-                        <phase>process-resources</phase>
+                        <phase>initialize</phase>
                         <goals>
-                            <goal>download-single</goal>
+                            <goal>unsnapshot</goal>
                         </goals>
-                        <configuration>
-                            <url>${upstream.url}</url>
-                            <!-- WARNING! These downloads are not versioned. -->
-                            <fromFile>/javascript-charts/</fromFile>
-                            <toFile>${project.build.directory}/${project.artifactId}.zip</toFile>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>
@@ -77,6 +72,8 @@
                         <goals><goal>run</goal></goals>
                         <configuration>
                             <target>
+                                <echo message="download archive"/>
+                                <get src="${upstream.url}" dest="${project.build.directory}/${project.artifactId}.zip"/>
                                 <echo message="unzip archive" />
                                 <unzip src="${project.build.directory}/${project.artifactId}.zip" dest="${project.build.directory}" />
                                 <echo message="moving resources" />
