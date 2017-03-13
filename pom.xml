@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>amcharts</artifactId>
-    <version>3.20.14-SNAPSHOT</version>
+    <version>3.20.13-1-SNAPSHOT</version>
     <name>amCharts</name>
     <description>WebJar for amCharts</description>
     <url>http://webjars.org</url>
@@ -19,8 +19,15 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <version.minor>3.20</version.minor>
-        <upstream.url>https://s3.amazonaws.com/amcharts-downloads/${version.minor}/amcharts_${version.unsnapshot}.free.zip</upstream.url>
+        <upstream.url>https://s3.amazonaws.com/amcharts-downloads/${version.minor}/amcharts_${version.unrevise}.free.zip</upstream.url>
         <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${project.version}</destDir>
+        <requirejs>
+            {
+                "paths": {
+                    "amcharts": "amcharts"
+                }
+            }
+        </requirejs>
     </properties>
 
 
