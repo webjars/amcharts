@@ -11,15 +11,15 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>amcharts</artifactId>
-    <version>4.9.24-SNAPSHOT</version>
+    <version>5.1.4-SNAPSHOT</version>
     <name>amCharts</name>
     <description>WebJar for amCharts</description>
     <url>http://webjars.org</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <version.minor>4.9.23</version.minor>
-        <upstream.url>https://registry.npmjs.org/@amcharts/amcharts4/-/amcharts4-${version.unrevise}.tgz</upstream.url>
+        <version.minor>5.1.4</version.minor>
+        <upstream.url>https://registry.npmjs.org/@amcharts/amcharts5/-/amcharts5-${version.unrevise}.tgz</upstream.url>
         <destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${project.version}</destDir>
         <requirejs>
             {
